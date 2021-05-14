@@ -1,0 +1,25 @@
+html {
+    height:100%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-image: url("Game/images/cover.png");
+    background-size: cover;
+}
+
+.out {
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.out.fade-out {
+    opacity: 0;
+}
