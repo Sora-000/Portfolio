@@ -7,19 +7,6 @@ intents = discord.Intents.default()
 bot = discord.Client(intents=intents)
 com = "="
 
-
-
-# message ↓
-
-# <Message id=829679953124524044 
-# channel=<TextChannel id=628941494908223489 name='봇-실험실' position=4 nsfw=False news=False category_id=628954154450026511> 
-# type=<MessageType.default: 0> 
-# author=<Member id=378561593879035916 name='Sora' discriminator='3901' bot=False nick=None 
-# guild=<Guild id=628940876432801793 name='코딩 천국' 
-# shard_id=None chunked=False member_count=13>> flags=<MessageFlags value=0>>
-
-
-
 @bot.event
 async def on_ready():
     print('login')
@@ -99,4 +86,4 @@ async def on_message(message):
         helpEmbed.set_footer(text=bot.user, icon_url=bot.user.avatar_url)
         await message.channel.send(embed=helpEmbed)
 
-bot.run("NjM2MTU4NDU1NTA1MzU0Nzcw.Xa7iuw.Sl5kyXoWSGiusPUFeybyZOr43hc")
+bot.run("") # 토큰을 입력해 주세요
