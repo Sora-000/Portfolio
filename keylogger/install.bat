@@ -1,9 +1,9 @@
 @echo off
 
 pip install pynput
-pip insatll flask
-pip install requests
 pip install Listener
+pip install flask
+pip install requests
 pip install Key
 pip install datetime
 

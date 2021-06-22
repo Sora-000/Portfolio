@@ -4,6 +4,7 @@ from datetime import date, datetime
 app = Flask(__name__)
 
 @app.route('/get_logs', methods=['POST'])
+
 def get_logs():
     logs = request.form['logs']
 
